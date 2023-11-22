@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-32">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to HTML OCR Converter</title>
+</head>
+<body>
+    <h1>Extracted Text</h1>
+
+    {% for text_item in extracted_text %}
+        <p>{{ text_item }}</p>
+    {% endfor %}
+    
+</body>
+</html>
