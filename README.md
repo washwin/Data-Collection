@@ -1,7 +1,7 @@
 # Data-Collection
 * Image to Text
- * Tessereact.py outputs text from image(hard-coded within)
-  * Image processing using openCV
+* * Tessereact.py outputs text from image(hard-coded within) using Tesseract OCR.
+  * Image processing using openCV.
 * Image to HTML
-* * hello
-* Simple webscraper that can scrape contents of basic tags(paragraphs, hyperref links, table contents)
+* * image_to_html.py is a Flask web application that uses Tesseract OCR to extract text from images.
+* Simple webscraper that can scrape contents of basic tags(paragraphs, hyperref links, table contents).
