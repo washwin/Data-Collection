@@ -7,7 +7,7 @@ def fetch_refseek_text(article_title):
     source = requests.get(f'https://www.refseek.com/search?q={article_title}').text
     main = BeautifulSoup(source, 'lxml')
 
-    all_text = ["ok"]
+    all_text = ["test"]
     http_links = main.find_all('a', href=re.compile(r'^https?://'))
     for link in http_links:
         try:
