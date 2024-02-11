@@ -32,7 +32,7 @@ def fetch_paochelsalaitaret_links():
         download_pdf(url, name[1], directory)
 
 def fetch_hueiyenlanpao_links():
-    start_date = date(2024, 2, 3)
+    start_date = date(2024, 2, 4)
     end_date = date(2024, 2, 4)
     day = 1
     month = 1
@@ -54,15 +54,15 @@ def fetch_hueiyenlanpao_links():
         while (True):
             link = f"https://hueiyenlanpao.com/wp-content/uploads/2016/06/{day}.{month}.{d.year}-B{i}.pdf"
             i = i + 1
-            # print(link)
             if check_link_existence(link):
                 links.append(link)
-                # name = f"{d.year}-{month}-{day}:{i}.pdf"
-                # download_pdf(link, name, directory)
+                print(link)
+                name = f"{d.year}-{month}-{day}:{i}.pdf"
+                download_pdf(link, name, directory)
             else:
                 break
-    u = "https://hueiyenlanpao.com/wp-content/uploads/2016/06/03.02.2024-B6.pdf"
-    name = "test"
-    download_pdf(u, name, directory)
+    # u = "https://hueiyenlanpao.com/wp-content/uploads/2016/06/03.02.2024-B6.pdf"
+    # name = "test"
+    # download_pdf(u, name, directory)
     
 fetch_hueiyenlanpao_links()
