@@ -65,4 +65,4 @@ def fetch_hueiyenlanpao_links():
     # name = "test"
     # download_pdf(u, name, directory)
     
-fetch_hueiyenlanpao_links()
+# fetch_hueiyenlanpao_links()

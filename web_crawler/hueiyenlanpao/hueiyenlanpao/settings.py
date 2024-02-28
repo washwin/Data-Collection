@@ -3,15 +3,13 @@ BOT_NAME = "hueiyenlanpao"
 SPIDER_MODULES = ["hueiyenlanpao.spiders"]
 NEWSPIDER_MODULE = "hueiyenlanpao.spiders"
 
+ROBOTSTXT_OBEY = True
+
+
 ITEM_PIPELINES = {"scrapy.pipelines.files.FilesPipeline": 1}
 FILES_STORE = "dowloaded_pdfs"
-ROBOTSTXT_OBEY = True
-REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
 
 PROXY_POOL_ENABLED = True
-
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
@@ -20,7 +18,6 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 # PROXY_POOL_BAN_POLICY = 'hueiyenlanpao.policy.MyPolicy'
-
 PROXY = ""
 CHROME_DRIVER_PATH ='/snap/bin/chromium.chromedriver'
 PDF_SAVE_PATH = "./downloaded_pdfs"
@@ -33,3 +30,9 @@ PDF_PRINT_OPTIONS = {
     'preferCSSPageSize': True,
 }
 WEBDRIVER_HUB_URL = 'http://127.0.0.1:4444/wd/hub'
+
+
+
+REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+FEED_EXPORT_ENCODING = "utf-8"
