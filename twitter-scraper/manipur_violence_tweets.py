@@ -3,8 +3,8 @@ import time
 import twikit
 
 USERNAME = 'DataC51466'
-EMAIL = 'xxxxxxxxxxxxxxx'
-PASSWORD = 'xxxxxx'
+EMAIL = '210010060@iitdh.ac.in'
+PASSWORD = 'KSijNdwXdJJd799'
 # Initialize client
 client = twikit.Client('en-US')
 # Login to the service with provided user credentials
@@ -13,7 +13,7 @@ client.login(
     auth_info_2=EMAIL,
     password=PASSWORD
 )
-
+print("Authentication successful")
 hash_tags = "#KukiMilitant #SaveManipur #Savemeiteis #Ethniccleansing #kukimilitants #kuki #meitei #visitManipur #Kuki_ZoEngineeredViolence #SaveMoreh #SaveManipurSaveIndia #MorehBurning #ManipurFights Back #KukiMilitantvioleteSoO #AbrogateSoO #poppy #illegalImmigration #terror #Sanamahi #7MonthsOfNoInternet #StopTheViolence #MyManipur #Stand4Manipur #ManipurUnderAttack #StopGenocideofMeiteis #lies #genocide #KukiLiesXposed #KukiAtrocites #KukiZoEngineerdManipurConflict #meiteiyouths #KukiWarCrimes #PoppyCultivators #kukinarcoterrorist #Narcokukiterrorist #SavekukiZoTribals #ManipurCrisis #KukiRapist #AssamRifles#lamkatalk #stoppoppycultivators #kukizo #kukizolivesmatter #ManipurPolice #FailedGovernment #manipurisburning #MeiteiMilitant "
 hashtags = hash_tags.split()
 
@@ -24,6 +24,7 @@ with open('manipur_violence.csv', 'w', newline='') as output_csv_file:
     csv_writer.writerow(['hashtag', 'text', 'favorite_count'])    
     
     for hashtag in hashtags:
+        print(f"Finding tweets on {hashtag}")
         while True:
             try:
                 tweets = client.search_tweet(hashtag, 'Latest')
