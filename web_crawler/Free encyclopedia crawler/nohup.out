@@ -1,0 +1,14 @@
+helo
+Successfully fetched text for India from Wikipedia
+Successfully fetched text for India from Britannica
+HTTP Error: 403 Client Error: Forbidden for url: https://www.vocabulary.com/dictionary/India
+HTTP Error: 503 Server Error: Service Unavailable for url: https://www.amazon.com/gp/search?ie=UTF8&tag=refseek-20&index=books&keywords=India
+Successfully fetched text for Russia from Wikipedia
+Successfully fetched text for Russia from Britannica
+HTTP Error: 403 Client Error: Forbidden for url: https://www.vocabulary.com/dictionary/Russia
+HTTP Error: 503 Server Error: Service Unavailable for url: https://www.amazon.com/gp/search?ie=UTF8&tag=refseek-20&index=books&keywords=Russia
+Successfully fetched text for France from Wikipedia
+Successfully fetched text for France from Britannica
+HTTP Error: 403 Client Error: Forbidden for url: https://www.vocabulary.com/dictionary/France
+HTTP Error: 400 Client Error: Bad Request for url: http://www.wordnik.com/words/France/
+HTTP Error: 503 Server Error:  for url: https://www.amazon.com/gp/search?ie=UTF8&tag=refseek-20&index=books&keywords=France
