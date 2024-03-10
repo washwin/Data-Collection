@@ -32,11 +32,11 @@ with open('manipur_violence.csv', 'w', newline='') as output_csv_file:
                     tweet = client.get_tweet_by_id(tweet.id)
                     csv_writer.writerow([hashtag, tweet.text, tweet.favorite_count])
                     
-                for i in range(NEXTPAGE):
-                    more_tweets = client.search_tweet(hashtag, 'Latest')
-                    for tweet in more_tweets:
-                        tweet = client.get_tweet_by_id(tweet.id)
-                        csv_writer.writerow([hashtag, tweet.text, tweet.favorite_count])
+                # for i in range(NEXTPAGE):
+                #     more_tweets = client.search_tweet(hashtag, 'Latest')
+                #     for tweet in more_tweets:
+                #         tweet = client.get_tweet_by_id(tweet.id)
+                #         csv_writer.writerow([hashtag, tweet.text, tweet.favorite_count])
                 
                 break
             except twikit.errors.TooManyRequests:
