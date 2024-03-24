@@ -1,0 +1,249 @@
+\documentclass{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{url}
+%\usepackage{algorithm}
+%\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{cite}
+\usepackage{import}
+\usepackage{hyperref}
+% \hypersetup{
+%     linkcolor=blue,     
+%     urlcolor=blue,
+%     }
+% \urlstyle{same}
+
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=25mm,
+    bottom=25mm
+}
+
+\begin{document}
+\begin{titlepage}
+\addtolength{\hoffset}{-1cm}
+	\centering
+	\includegraphics[width=0.40\textwidth]{iitdh logo.png}\par\vspace{1cm}
+	{\scshape\LARGE  \par}
+	\vspace{1cm}
+	{\scshape\Large Report \par}
+	\vspace{1.5cm}
+	{\huge\bfseries Data collection and preprocessing \par}
+	\vspace{2cm}
+	{\Large\itshape Ashwin Waghmare \par \small Department of Computer Science \par \small 210010060}
+	\vfill
+	\small{Supervisor:} \par
+	   Prof. Anand Kojengbam 
+
+	\vfill
+
+% Bottom of the page
+	{\large 2024}
+\end{titlepage}
+
+
+\pagestyle{fancy}
+\fancyhead[RO]{Data collection}
+\fancyfoot[RO]{}
+\vspace*{10pt}
+
+\textbf{\LARGE{Acknowledgements}}\\ \\ \\ 
+\paragraph{}
+I would like to express my sincere gratitude to Professor Anand Konjengbam for his invaluable guidance and mentorship throughout the duration of this RnD project. They provided me with the necessary resources, academic insight, and continuous encouragement, which significantly contributed to the quality and depth of this project.
+\paragraph{}
+I am also thankful for the opportunity to learn from Dr Konjengbam, not only in the context of this project but also in my overall academic journey.
+\paragraph{}
+This project would not have been possible without the collective efforts and support of these individuals and institutions. I am truly fortunate to have had the opportunity and to be a part of this academic community.
+\\ \\
+Thank you.\\
+Ashwin Waghmare\\
+IIT Dharwad\\
+2024
+
+
+\newpage
+\tableofcontents
+
+\newpage
+\vspace*{3pt}
+\section{Abstract}
+\paragraph{} This report presents a comprehensive collection of data collection tools covering major media agencies. The primary objective of these tools is to collect data specifically in light of the storminess amidst ethnic groups of Manipur. \cite{mv}On 3 May 2023, ethnic violence erupted among the Meitei people, a majority that lives in the Imphal Valley, and the Kuki-Zo tribal community from the surrounding hills. According to government figures, as of 15 September, 175 people have been killed in the violence. 1,108 others were injured while 32 are missing. 4,786 houses were burnt and 386 religious structures including temples and churches were vandalized. The violence left more than 70,000 people displaced from their homes.
+\paragraph{}The resulting dataset contains preprocessed articles and comments written in context of the aforementioned scenario. This dataset intends to undergo sentiment analysis to gain an insight about the conflicting ethnic groups of Manipur.
+
+
+
+% \newpage
+\vspace*{3pt}
+\section{Introduction}
+\paragraph{} Data collection or data gathering is the process of gathering and measuring information on targeted variables in an established system, which then enables one to answer relevant questions and evaluate outcomes. The various tools implemented in the report are listed below:
+\begin{itemize}
+    \item \textbf{Twikit}
+    \\ Twikit\cite{twi} is a simple API wrapper that interacts with Twitter's (now X) internal API. Using this API, tweets for a set of particular hashtags are extracted.
+    \item \textbf{Epaper}
+    \\ Epapers of various regional media companies of Manipur are extracted using beautiful soup\cite{bs}.
+    \item \textbf{YouTube}
+    \\ Using YouTube's data API\cite{yt} comments from specific channels and videos are scrapped.
+\end{itemize}
+
+
+
+
+
+
+
+
+\newpage
+\vspace*{3pt}
+\section{Epapers}
+\subsection{Brief}
+Newspapers are the primary source of information that shed light on current events. The opinions of the older generation are significantly impacted by these media. Data from popular newspaper agencies including Sangai Express, Imphal Times, Hueiyenlanpao, Frontier Manipur is scraped and preprocessed into a dataset.
+\subsection{Methodology}
+Using automated python scripts, beautiful soup is used to parse the HTML/XML code of the websites. Each website having different coding patterns and terminologies, is carefully inspected and specific data is scraped and stored as a raw csv file. These raw csv files are intended to undergo basic preprocessing, wherin individual entries would be analysed based on their relevancy to the motive of this report, that is Manipur's violence.
+\begin{itemize}
+    \item \textbf{Sangai Express, Frontier Manipur, Imphal Times}
+    \\The website of Sangai Express ("\url{https://www.thesangaiexpress.com/}"), The Frontier Manipur ("\url{https://thefrontiermanipur.com/}"), Imphal times ("\url{https://www.imphaltimes.com/}") are individaully scanned for articles using a simple webcrawler in seaprate python notebooks. The articles are stored in a csv file as "article name, article text". These articles need to be manually segregated using the title of the article for relevancy.
+    \item \textbf{Hueiyenlanpao}
+    \\Epapers from a particular start date till a particular end date are downloaded and stored in a folder. These digital versions of the daily newspaper Hueiyenlanpao are basically jpeg versions of the newspaper stored a pdf. Google's OCR model, pytesseract is used to optically recognise the characters and stored in individual sentence format. Newspapers from desired dates can be picked manually for further analysis.
+\end{itemize}
+\subsection{Results}
+Extracted data from respective websites are stored in separate csv files. 
+\begin{table}[h]
+    \centering
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Sr. No & Media name & Number of articles scraped & Total csv file size \\
+        \hline
+        1 & Sangai Express & 644 & 1.6Mb \\
+        \hline
+        2 & The Frontier Manipur & 222 & 1.1Mb \\
+        \hline
+        3 & Imphal Times & 10 & 68.5Kb \\
+        \hline
+    \end{tabular}
+    \caption{Statistics of extracted data from Media}
+    \label{tab:epaper}
+\end{table}
+\paragraph{}Epapers from Hueiyenlanpao are stored in pdf format in separate directory.
+
+
+
+
+
+
+
+\newpage
+\vspace*{3pt}
+\section{Twitter (X)}
+\subsection{Brief}
+Twitter is a free social networking site where users broadcast short posts known as tweets. People use Twitter to get the latest updates and promotions from brands; communicate with friends; and follow business leaders, politicians and celebrities. They also use it to stay current on news and events. Twitter is very popular among millennials and young adults thus making a good source to analyse this age group of people. 
+\subsection{Methodology}
+An automated python script is used to extract tweets from twitter. Using the python package twikit, specific tweets can be extracted for free. Latest tweets with the following hashtags are extracted: 
+\begin{verbatim}
+     #KukiMilitant #SaveManipur #Savemeiteis #Ethniccleansing #
+     kukimilitants #kuki #meitei #visitManipur #Kuki_ZoEngineeredViolence 
+     #SaveMoreh #SaveManipurSaveIndia #MorehBurning #ManipurFights Back 
+     #KukiMilitantvioleteSoO #AbrogateSoO #poppy #illegalImmigration 
+     #terror #Sanamahi #7MonthsOfNoInternet#StopTheViolence 
+     #MyManipur #Stand4Manipur #ManipurUnderAttack #StopGenocideofMeiteis 
+     #lies #genocide #KukiLiesXposed #KukiAtrocites #KukiZoEngineerdManipurConflict 
+     #meiteiyouths #KukiWarCrimes #PoppyCultivators #kukinarcoterrorist 
+     #Narcokukiterrorist #SavekukiZoTribals #ManipurCrisis #KukiRapist 
+     #AssamRifles#lamkatalk #stoppoppycultivators #kukizo #kukizolivesmatter 
+     #ManipurPolic #FailedGovernment #manipurisburning #MeiteiMilitant 
+\end{verbatim}
+For each tweet the following data has been extracted: id (unique identifier of the tweet), text (full text of the tweet), favorite\_count (count of favorites or likes for the tweet), created\_at (created\_at converted to datetime), username (the username of the user that created this tweet), lang (language of the tweet), retweet\_count (number of times this tweet was reused by different users), media ( list of media entities associated with the tweet, mostly contains urls of the images attached), view\_count ( number of users who have viewed this tweet), replies ( count of replies to this tweet).
+\paragraph{}The only drawback to this method is that, only 500 tweets can be requested for every 15 minutes. The python script sleeps for 900 seconds after it has extracted 500 tweets. All tweets have been extracted from a personal account.
+\subsection{Results}
+The data extracted from the tweets are stored in a single csv file with separate columns for each attribute mentioned above. Roughly 50 tweets per hashtag (total 47 hashtags) are extracted.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.2\textwidth]{twets_csv.png}
+  \caption{Screenshot of manipur\_violence\_tweets.csv}
+  \label{fig:mage}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\newpage
+\vspace*{3pt}
+\section{YouTube}
+\subsection{Brief}
+YouTube is a video sharing service where users can watch, like, share, comment and upload their own videos. The video service can be accessed on PCs, laptops, tablets and via mobile phones. YouTube is a free to use service and a can be a great space for teens to discover things they like. For most young people YouTube is the only social media platform that they are exposed to. Comments made by these viewers on specific videos related to the motive of this report can be scraped to analyse the  sentiments young generation. 
+\subsection{Methodology}
+YouTube does not allow third party access to their platform. However, they do have an API that allows users to extract a set amount of data, that is 10000 requests per day. Below is a stepwise implementation of YouTube Data API.
+
+\begin{enumerate}
+\item Set Up a Project and Enable the YouTube Data API
+\begin{itemize}
+\item Go to the Google Cloud Console (\url{https://console.cloud.google.com/}).
+\item Create a new project or select an existing one.
+\item In the navigation pane, click on "APIs \& Services" then "Library".
+\item Search for "YouTube Data API" and enable it for your project.
+\end{itemize}
+\item Create API Credentials
+\begin{itemize}
+\item In the Google Cloud Console, navigate to "APIs \& Services" then "Credentials".
+\item Click on "Create credentials" and select "API key".
+\end{itemize}
+\item Install Necessary Libraries
+\begin{itemize}
+\item A library \texttt{google-api-python-client} for Python should be installed using pip
+\item \begin{verbatim}
+       pip install --upgrade google-api-python-client
+       \end{verbatim}
+\end{itemize}
+\item Write Code to Access the API
+\begin{itemize}
+\item Use the API key you generated to authenticate your requests to the YouTube Data API.
+\item If the "video ID" of the YouTube video from which you want to retrieve comments is known then below is the pseudocode to get comments from that video.
+\end{itemize}
+\end{enumerate}
+\subsection{Results}
+A collection of videos specifically highlighting the Manipur's conflict are found manually. Roughly 20 comments from each video is scraped.
+
+
+
+\newpage
+\vspace*{3pt}
+\section{Futureworks}
+\begin{itemize}
+    \item Given raw dataset can be further preprocessed, using nltk library in python, into tokens.
+    \item Use this generated dataset for sentiment analysis.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\vspace*{3pt}
+\begin{thebibliography}{6}
+\bibitem{bs} \url{https://beautiful-soup-4.readthedocs.io/en/latest/}
+\bibitem{twi} \url{https://pypi.org/project/twikit/1.0.3/}
+\bibitem{yt} \url{https://developers.google.com/youtube/v3}
+\bibitem{mv} \url{https://en.wikipedia.org/wiki/2023%E2%80%932024_Manipur_violence}
+% \bibitem{} \url{}
+% \bibitem{} \url{}
+\bibitem{tess} \url{https://pypi.org/project/pytesseract/}
+\bibitem{tess1} \url{https://github.com/tesseract-ocr/tesseract}
+\end{thebibliography}
+\end{document}

@@ -3,8 +3,8 @@ import time
 import twikit
 
 USERNAME = 'DataC51466'
-EMAIL = '210010060@iitdh.ac.in'
-PASSWORD = 'KSijNdwXdJJd799'
+EMAIL = 'xxxxxxxxxxxxxxxxx'
+PASSWORD = 'xxxxxx'
 # Initialize client
 client = twikit.Client('en-US')
 # Login to the service with provided user credentials

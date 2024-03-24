@@ -3,7 +3,7 @@ from wikipedia_scraper import fetch_wikipedia_text
 from britannica_scraper import fetch_britannica_text
 from refseek import fetch_refseek_text
 
-article_titles = ["India", "Russia", "France"]
+article_titles = ["Manipur", "Manipur violence"]
 for article_title in article_titles:
     wiki_text = fetch_wikipedia_text(article_title)
     if wiki_text:
