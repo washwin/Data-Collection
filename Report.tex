@@ -103,14 +103,14 @@ IIT Dharwad\\
 \vspace*{3pt}
 \section{Epapers}
 \subsection{Brief}
-Newspapers are the primary source of information that shed light on current events. The opinions of the older generation are significantly impacted by these media. Data from popular newspaper agencies including Sangai Express, Imphal Times, Hueiyenlanpao, Frontier Manipur is scraped and preprocessed into a dataset.
+Newspapers are the primary source of information that shed light on current events. The opinions of the older generation are significantly impacted by these media. Data from popular newspaper agencies including Sangai Express, Imphal Times, Hueiyenlanpao and Frontier Manipur is scraped and preprocessed into a dataset.
 \subsection{Methodology}
 Using automated python scripts, beautiful soup is used to parse the HTML/XML code of the websites. Each website having different coding patterns and terminologies, is carefully inspected and specific data is scraped and stored as a raw csv file. These raw csv files are intended to undergo basic preprocessing, wherin individual entries would be analysed based on their relevancy to the motive of this report, that is Manipur's violence.
 \begin{itemize}
     \item \textbf{Sangai Express, Frontier Manipur, Imphal Times}
-    \\The website of Sangai Express ("\url{https://www.thesangaiexpress.com/}"), The Frontier Manipur ("\url{https://thefrontiermanipur.com/}"), Imphal times ("\url{https://www.imphaltimes.com/}") are individaully scanned for articles using a simple webcrawler in seaprate python notebooks. The articles are stored in a csv file as "article name, article text". These articles need to be manually segregated using the title of the article for relevancy.
+    \\The website of Sangai Express ("\url{https://www.thesangaiexpress.com/}"), The Frontier Manipur ("\url{https://thefrontiermanipur.com/}"), Imphal Times ("\url{https://www.imphaltimes.com/}") are individaully scanned for articles using a simple webcrawler in separate python notebooks. The articles are stored in a csv file as "article name, article text". These articles need to be manually segregated for relevancy, using the title of the article.
     \item \textbf{Hueiyenlanpao}
-    \\Epapers from a particular start date till a particular end date are downloaded and stored in a folder. These digital versions of the daily newspaper Hueiyenlanpao are basically jpeg versions of the newspaper stored a pdf. Google's OCR model, pytesseract is used to optically recognise the characters and stored in individual sentence format. Newspapers from desired dates can be picked manually for further analysis.
+    \\Epapers from a particular start date till a particular end date are downloaded and stored in a folder, using an automated python script. These digital versions of the daily newspaper Hueiyenlanpao are basically jpeg versions of the newspaper stored in pdf format. Google's OCR model, pytesseract is used to optically recognise the text and is stored in an individual sentence format. Newspapers from desired dates can be picked manually for further analysis.
 \end{itemize}
 \subsection{Results}
 Extracted data from respective websites are stored in separate csv files. 
@@ -143,9 +143,9 @@ Extracted data from respective websites are stored in separate csv files.
 \vspace*{3pt}
 \section{Twitter (X)}
 \subsection{Brief}
-Twitter is a free social networking site where users broadcast short posts known as tweets. People use Twitter to get the latest updates and promotions from brands; communicate with friends; and follow business leaders, politicians and celebrities. They also use it to stay current on news and events. Twitter is very popular among millennials and young adults thus making a good source to analyse this age group of people. 
+Twitter is a free social networking site where users broadcast short posts known as tweets. People use Twitter to get the latest updates and promotions from brands, communicate with friends, and follow business leaders, politicians and celebrities. They also use it to stay current on news and events. Twitter is very popular among millennials and young adults thus making a good source to analyse this age group of people. 
 \subsection{Methodology}
-An automated python script is used to extract tweets from twitter. Using the python package twikit, specific tweets can be extracted for free. Latest tweets with the following hashtags are extracted: 
+An automated python script is used to extract tweets from twitter. Using the python package twikit\cite{twi}, specific tweets can be extracted for free. Latest tweets with the following hashtags are extracted: 
 \begin{verbatim}
      #KukiMilitant #SaveManipur #Savemeiteis #Ethniccleansing #
      kukimilitants #kuki #meitei #visitManipur #Kuki_ZoEngineeredViolence 
@@ -159,14 +159,14 @@ An automated python script is used to extract tweets from twitter. Using the pyt
      #AssamRifles#lamkatalk #stoppoppycultivators #kukizo #kukizolivesmatter 
      #ManipurPolic #FailedGovernment #manipurisburning #MeiteiMilitant 
 \end{verbatim}
-For each tweet the following data has been extracted: id (unique identifier of the tweet), text (full text of the tweet), favorite\_count (count of favorites or likes for the tweet), created\_at (created\_at converted to datetime), username (the username of the user that created this tweet), lang (language of the tweet), retweet\_count (number of times this tweet was reused by different users), media ( list of media entities associated with the tweet, mostly contains urls of the images attached), view\_count ( number of users who have viewed this tweet), replies ( count of replies to this tweet).
-\paragraph{}The only drawback to this method is that, only 500 tweets can be requested for every 15 minutes. The python script sleeps for 900 seconds after it has extracted 500 tweets. All tweets have been extracted from a personal account.
+For each tweet the following data has been extracted: id (unique identifier of the tweet), text (full text of the tweet), favorite\_count (count of favorites or likes for the tweet), created\_at (created\_at converted to datetime), username (the username of the user that created this tweet), lang (language of the tweet), retweet\_count (number of times this tweet was reused by different users), media (list of media entities associated with the tweet, mostly contains urls of the images attached), view\_count (number of users who have viewed this tweet), replies (count of replies to this tweet).
+\paragraph{}The drawback to this method is that, only 500 tweets can be requested for every 15 minutes. The python script sleeps for 900 seconds after it has extracted 500 tweets. All tweets have been extracted from a personal account.
 \subsection{Results}
 The data extracted from the tweets are stored in a single csv file with separate columns for each attribute mentioned above. Roughly 50 tweets per hashtag (total 47 hashtags) are extracted.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1.2\textwidth]{twets_csv.png}
+  \includegraphics[width=1\textwidth]{twets_csv.png}
   \caption{Screenshot of manipur\_violence\_tweets.csv}
   \label{fig:mage}
 \end{figure}
@@ -222,8 +222,10 @@ A collection of videos specifically highlighting the Manipur's conflict are foun
 \vspace*{3pt}
 \section{Futureworks}
 \begin{itemize}
-    \item Given raw dataset can be further preprocessed, using nltk library in python, into tokens.
-    \item Use this generated dataset for sentiment analysis.
+    \item \textbf{Nltk Library} 
+    \\The Nltk library will be employed for further preprocessing of the raw dataset, including tasks such as tokenization, stemming, and lemmatization to prepare the data for advanced analysis.
+    \item \textbf{Sentiment Analysis}
+    \\The generated dataset will be utilized for in-depth sentiment analysis, aiming to uncover nuanced insights into the sentiments related to the ethnic conflict in Manipur. This analysis will provide a deeper understanding of the emotional and psychological dimensions of the conflict, paving the way for informed interventions and policy decisions.
 \end{itemize}
 
 
