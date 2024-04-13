@@ -19,7 +19,7 @@ hashtags = hash_tags.split()
 
 NEXTPAGE = 1
 
-with open('manipur_violence.csv', 'w', newline='') as output_csv_file:
+with open('manipur_violence.csv', 'a', newline='') as output_csv_file:
     csv_writer = csv.writer(output_csv_file)
     # csv_writer.writerow(['hashtag', 'text', 'favorite_count'])    
     csv_writer.writerow(['id', 'text', 'favorite_count', 'created_at', 'author', 'language', 'retweet_count', 'media', 'view_count', 'replies'])
