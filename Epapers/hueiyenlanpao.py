@@ -44,7 +44,7 @@ def fetch_hueiyenlanpao():
             if check_link_existence(link):
                 links.append(link)
                 print(link)
-                name = f"{d.year}-{month}-{day}:{i}.pdf"
+                name = f"{d.year}-{month}-{day}-{i}.pdf"
                 download_pdf(link, name, directory)
             else:
                 break
